@@ -1,9 +1,10 @@
-# step_response.py
-# Computes the step response for a transfer function
+# impulse_response.py
+# Computes the impulse response for a transfer function
 # The script accepts integer and decimal input from the CLI
 
-import control
+#from control import *
 import matplotlib.pyplot as plt
+from scipy import signal
 
 # === Computes the step response ===
 # Grabs input from the CLI and casts it as an float (same percision as a double)
@@ -15,12 +16,12 @@ num = [float(x) for x in input().split()]
 print("Enter the denominator: ", end='')
 dem = [float(x) for x in input().split()]
 
-sys = control.TransferFunction(num, dem)
-t, y = step(sys)
+sys = signal.TransferFunction(num, dem)
+t, y = signal.impulse(sys)
 
 # === Plotting ===
 plt.plot(y,t)
 plt.grid(True)
 plt.xlabel('t')
-plt.title('Step Response')
+plt.title('Impulse Response')
 plt.show()

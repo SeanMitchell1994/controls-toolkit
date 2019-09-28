@@ -3,6 +3,7 @@
 # The script accepts integer and decimal input from the CLI
 
 #from control import *
+from scipy import signal
 import matplotlib.pyplot as plt
 
 # === Computes the step response ===
@@ -15,8 +16,8 @@ num = [float(x) for x in input().split()]
 print("Enter the denominator: ", end='')
 dem = [float(x) for x in input().split()]
 
-sys = TransferFunction(num, dem)
-t, y = forced(sys)
+sys = signal.TransferFunction(num, dem)
+t, y = signal.forced(sys)
 
 # === Plotting ===
 plt.plot(y,t)
