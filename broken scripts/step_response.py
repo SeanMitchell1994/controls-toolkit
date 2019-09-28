@@ -2,7 +2,7 @@
 # Computes the step response for a transfer function
 # The script accepts integer and decimal input from the CLI
 
-from control import *
+import control
 import matplotlib.pyplot as plt
 
 # === Computes the step response ===
@@ -15,7 +15,7 @@ num = [float(x) for x in input().split()]
 print("Enter the denominator: ", end='')
 dem = [float(x) for x in input().split()]
 
-sys = TransferFunction(num, dem)
+sys = control.TransferFunction(num, dem)
 t, y = step(sys)
 
 # === Plotting ===
